@@ -15,8 +15,8 @@ cd $DIRECTORY/
 make
 sudo make install
 
-# Rebuild the shared object cache - needed to load the library
-# at runtime <http://linux.die.net/man/8/ldconfig>
-if [ `uname -s` == Linux ] ; then
+if [ `uname -s` != Darwin ] ; then
+    # Rebuild the shared object cache - needed to load the library
+    # at runtime <http://linux.die.net/man/8/ldconfig>
     sudo ldconfig
 fi
